@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			
+			input{
+				margin-top: 50px;
+				align-content: center;
+				width: 200px;
+				height: 30px;
+			}
+			
+		</style>
+	</head>
+	<body>
+
+		
+		<input type="button" value="prompt" onclick="czyPrompt('js原生弹出框')"/>
+		<br />
+		<input type="button" value="comfirm" onclick="czyComfirm('confirm')" />
+		<br />
+		<input type="button" value="alert" onclick="czyAlert('alert')"/>
+		<script>
+
+			function czyPrompt(str){
+				
+				var name = prompt('点击弹出prompt弹框', str)
+				if (name != '' && name != null) {
+					alert(name, '点击了确定')
+				}else{
+					alert('null')
+				}
+			}
+			
+			function czyComfirm(str){
+				
+				var comf = confirm(str);
+				
+				if (comf == true){
+					alert('点击了确认')
+				}else{
+					alert('点击了取消')
+				}
+				
+			}
+			
+			function czyAlert(str){
+				
+				alert(str)
+			}
+			
+		</script>
+		
+	</body>
+</html>

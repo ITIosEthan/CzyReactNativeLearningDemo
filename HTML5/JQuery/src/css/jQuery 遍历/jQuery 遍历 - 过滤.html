@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 遍历 - 过滤</title>
+
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("#b1").click(function () {
+//               first() 方法返回被选元素的首个元素
+               $("div").first().css("background-color",'red');
+            });
+            $("#b2").click(function () {
+//                last() 方法返回被选元素的最后一个元素
+                $("div").last().css("background-color",'red');
+            });
+            $("#b3").click(function () {
+//                eq() 方法返回被选元素中带有指定索引号的元素。
+//                索引号从 0 开始，因此首个元素的索引号是 0 而不是 1。
+                $("div").eq(3).css("background-color",'red');
+            });
+            $("#b4").click(function () {
+//                filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回
+                $("h2").filter(".h222").css("background-color",'red');
+            });
+            $("#b5").click(function () {
+//                not() 方法返回不匹配标准的所有元素。
+                $("h2").not(".h222").css("background-color",'red');
+            });
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+
+<p>三个最基本的过滤方法是：first(), last() 和 eq()，
+    它们允许您基于其在一组元素中的位置来选择一个特定的元素。</p>
+
+<button id="b1">first() 方法返回被选元素的首个元素。</button>
+<button id="b2">last() 方法返回被选元素的最后一个元素。</button>
+<button id="b3">eq() 方法返回被选元素中带有指定索引号的元素。。</button>
+<button id="b4">filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。</button>
+<button id="b5">not() 方法返回不匹配标准的所有元素。</button>
+
+<div id="div1" style="width: 100%;height: 400px;">divText
+
+    <div style="width: 100px;display: block; height: 100px;">
+        pppp
+        <h2 id="hhh">p1</h2>
+    </div>
+    <h1 id="hh">h1</h1>
+    <h2 class="h222">hhhhhhhhh2</h2>
+    <h3>442312312</h3>
+</div>
+<hr>
+<div id="div2" style="width: 100%;height: 400px;">divText
+
+    <div style="width: 100px;display: block; height: 100px;">
+        pppp
+        <h2 id="hhh2">p1</h2>
+    </div>
+    <h1 id="hh2">h1</h1>
+    <h2 class="h222">hhhhhhhhh2</h2>
+    <h3>442312312</h3>
+</div>
+
+
+</body>
+</html>

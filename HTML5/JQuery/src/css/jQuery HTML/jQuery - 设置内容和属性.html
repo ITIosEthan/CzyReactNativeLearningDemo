@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - 设置内容和属性</title>
+
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#b1").click(function () {
+                $("p").text("这是设置后的text");
+            });
+            $("#b2").click(function () {
+                $("p").html("这是设置后的html");
+            });
+            $("#b3").click(function () {
+               $("#contentText").val("1000");
+            });
+            $("#b4").click(function () {
+               $("a").attr({
+                   "href":'http://www.w3school.com.cn/jquery',
+//                   请把鼠标指针移动到链接上，或者点击该链接，
+//                   来查看已经改变的 href 值和已经设置的 title 值。
+                   'title':'w3 jquery'
+               }).text("w3 JQuery");
+            });
+            $("#b5").click(function () {
+//              同样拥有回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，
+//              以及原始（旧的）值。
+//              然后以函数新值返回您希望使用的字符串。
+                    $("#ppp").text(function (i, oldText) {
+                        return "old:"+oldText+" index:"+i+" new:"+"这是新内容";
+                    });
+            });
+            $("#b6").click(function () {
+               $("#attrp").attr("href", function (i, oldValue) {
+                   return oldValue+"/jquery";
+               })
+            });
+        });
+    </script>
+</head>
+<body>
+
+<p>这是一个<b>p</b>标签</p>
+
+<h5>请输入数字:</h5><input type="text" id="contentText" style="border: 1px solid #222222">
+<br>
+<a href="http://www.baidu.com">百度</a>
+<br><br>
+<button id="b1">设置text</button>
+<button id="b2">设置html</button>
+<button id="b3">设置val</button>
+<button id="b4">设置attr</button>
+
+<p id="ppp">回调相关 第一个参数当前元素下标 第二个参数当前元素原来的值</p>
+<button id="b5">回调相关</button>
+<br><br>
+
+<a href="http://www.w3school.com.cn" id="attrp">attr() 的回调函数</a><br>
+<button id="b6">attr() 的回调函数</button>
+
+</body>
+</html>

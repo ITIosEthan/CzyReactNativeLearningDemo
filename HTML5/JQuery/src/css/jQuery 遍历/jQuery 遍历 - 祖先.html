@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 遍历 - 祖先</title>
+
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+//            parent() 方法返回被选元素的直接父元素。p包含p不算
+            $("#hhh").parent().css("background-color","blue");
+//            parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)。
+//            $("#00000").parents().css("background-color",'gray');
+//            也可以使用可选参数来过滤对祖先元素的搜索。
+//            $("#00000").parent("div").css("background-color",'gray');
+//            parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
+//            $("#00000").parentsUntil("body").css("background-color",'gray');
+        });
+
+
+    </script>
+</head>
+<body>
+
+<!--<p>parent() parent() 方法返回被选元素的直接父元素。<br>-->
+    <!--parents() parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)。<br>-->
+    <!--parentsUntil() parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。<br>-->
+    <!--$("span").parentsUntil("div");<br>-->
+<!--</p>-->
+
+<!--<p class="text">text</p>-->
+<p>3. 有几个特殊的块级元素只能包含内嵌元素，不能再包含块级元素，
+    这几个特殊的标签是：
+    h1、h2、h3、h4、h5、h6、p、dt。</p>
+
+<div id="div1" style="width: 100%;height: 400px;background-color:red">divText
+
+
+
+    <div style="width: 100px;display: block; height: 100px;background-color: green">
+        pppp
+        <h2 id="hhh">p1</h2>
+    </div>
+    <h1 id="hh">h1</h1>
+</div>
+
+</body>
+</html>

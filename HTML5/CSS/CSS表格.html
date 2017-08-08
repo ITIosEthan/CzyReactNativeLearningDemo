@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<p>表格具有双线条边框。这是由于 table、th 以及 td 元素都有独立的边框</p>
+		<p>如果需要把表格显示为单线条边框，请使用 border-collapse 属性。设置为collapse：折叠</p>
+		
+		<style type="text/css">
+			.tableOne{
+				table-layout: fixed;
+			}
+			.tableTwo{
+				table-layout: auto;
+			}
+			.tableFive{
+				/*显示/隐藏表格中的空单元*/
+				empty-cells:hide;
+			}
+		</style>
+		
+		<!--合并表格边框-->
+		<style type="text/css">
+			.tableSix{
+				/*collapse:折叠*/
+				border-collapse: collapse;
+				/*tr 与 td 线条分离*/
+				/*border-collapse: separate;*/
+			}
+		</style>
+		
+		<!--设置表格边框之间的空白-->
+		<style>
+			.tableSeven{
+				border-collapse: separate;
+				border-spacing: 10px 30px;
+			}
+		</style>
+		
+		<!--设置表格标题的位置-->
+		<style type="text/css">
+			.tableEight{
+				border-collapse: collapse;
+				border-spacing: 0px;
+				caption-side: right;
+				/*隐藏的时候 还会显示有线 是因为border-collapse设置成了collapse; 应该设置为separate*/
+				empty-cells: hide;
+			}
+		</style>
+		
+		<!--居中-->
+		<style type="text/css">
+			td{
+				/*水平*/
+				text-align: center;
+				height: 50px;
+				/*垂直*/
+				vertical-align: center;
+				/*边距*/
+				/*padding*/
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<table class="tableOne" border="1px" bordercolor="red" width="100%">
+			<tr>
+				<td width="20%">11111111111111111111111111111111111111111111111111</td>
+				<td width="30%">222</td>
+				<td width="50%">33</td>
+			</tr>
+		</table>
+		<table class="tableTwo" border="1px" bordercolor="green" width="100%">
+			<tr>
+				<td width="20%">11111111111111111111111111111111111111111111111111</td>
+				<td width="30%">222</td>
+				<td width="50%">33</td>
+			</tr>
+		</table>
+		<table class="tableThree" border="1px" bordercolor="blue" width="100%">
+			<tr>
+				<td width="100%">none</td>
+			</tr>
+		</table>
+				<table class="tableFour" border="1px" bordercolor="blue">
+			<tr>
+				<td width="100%">none</td>
+			</tr>
+		</table>
+		</table>
+				<table class="tableFive" border="1px" bordercolor="blue">
+			<tr>
+				<td width="50%">none</td>
+				<td width="50%"></td>
+			</tr>
+		</table>
+		
+		<p>合并表格边框</p>
+		
+		<!--合并表格边框-->
+		<!--注释：如果没有规定 !DOCTYPE，border-collapse 属性可能会引起意想不到的错误-->
+		<table class="tableSix" border="1px" bordercolor="red">
+			<tr>
+				<td>first</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>second</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>three</td>
+				<td>3</td>
+			</tr>
+		</table>
+		
+		<p>设置表格边框之间的空白</p>
+		
+		<!--设置表格边框之间的空白-->
+		<table class="tableSeven" border="1px" bordercolor="red">
+			<tr>
+				<td>1111</td>
+				<td>2222</td>
+			</tr>
+			<tr>
+				<td>3333</td>
+				<td>4444</td>
+			</tr>
+		</table>
+		
+		<p>设置表格标题的位置</p>
+		
+		<!--设置表格标题的位置-->
+		<table class="tableEight" border="1px" bordercolor="green" width="500px">
+			<caption>我是table的标题</caption>
+			<tr>
+				<td>1111</td>
+				<td>2222</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>333</td>
+				<td>444</td>
+				<td>555</td>
+			</tr>
+		</table>
+		
+	</body>
+</html>

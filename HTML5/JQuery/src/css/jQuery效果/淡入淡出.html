@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淡入淡出</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#fadein").click(function () {
+                $('#div1').fadeIn();
+                $("#div2").fadeIn("fast");
+                $("#div3").fadeIn(3000);
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#fadeout").click(function () {
+                $("#div4").fadeOut();
+                $("#div5").fadeOut('slow');
+                $("#div6").fadeOut(4000);
+            });
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#fadetoggle").click(function () {
+                $("#div7").fadeToggle();
+                $("#div8").fadeToggle('slow');
+                $("#div9").fadeToggle(4000,function () {
+                    console.log('div9 fade toggle');
+                });
+            })
+        })
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#fadeto").click(function () {
+                $("#div10").fadeTo('slow',0.1);
+                $("#div11").fadeTo('fast',0.1);
+                $("#div12").fadeTo(4000, 0.1);
+            });
+        });
+    </script>
+</head>
+<body>
+
+<p><b>--Query fadeIn() 用于淡入已隐藏的元素。$(selector).fadeIn(speed,callback);</b></p>
+<p>用display属性老控制是否显示</p>
+<div id="div1" style="background-color: red; width: 100%; display: none; height: 100px"></div>
+<div id="div2" style="background-color: green; width: 100%; height: 100px; display: none"></div>
+<div id="div3" style="background-color: hotpink; width: 100%; height: 100px; display: none"></div>
+<button id="fadein">fade in</button>
+
+<p><b>jQuery fadeOut() 方法用于淡出可见元素。$(selector).fadeOut(speed,callback);</b></p>
+<div id="div4" style="width: 100%;height: 100px;display: inline-block;background-color: yellow"></div>
+<div id="div5" style="width: 100%; height: 100px;display: block;background-color: cornsilk"></div>
+<div id="div6" style="width: 100%;height: 100px;display: inline-block;background-color: olive"></div>
+<button id="fadeout">fadeout</button>
+
+<p><b>jQuery fadeToggle() 方法<br>
+    jQuery fadeToggle() 方法可以在 fadeIn() 与 fadeOut() 方法之间进行切换。<br>
+    如果元素已淡出，则 fadeToggle() 会向元素添加淡入效果。<br>
+    如果元素已淡入，则 fadeToggle() 会向元素添加淡出效果。<br>
+    $(selector).fadeToggle(speed,callback);
+</b></p>
+<div id="div7" style="width: 100%;height: 100px;display: inline-block;background-color: red"></div>
+<div id="div8" style="width: 100%;height: 100px;display: inline-block;background-color: green"></div>
+<div id="div9" style="width: 100%;height: 100px;display: inline-block;background-color: blue"></div>
+<button id="fadetoggle">fadetoggle</button>
+
+<p>jQuery fadeTo() 方法<br>
+    jQuery fadeTo() 方法允许渐变为给定的不透明度（值介于 0 与 1 之间）。</p>
+<div id="div10" style="background-color: red;width: 100%;height: 100px"></div>
+<div id="div11" style="background-color: green; width: 100%; height: 100px"></div>
+<div id="div12" style="background-color: blue;width: 100%;height: 100px"></div>
+<button id="fadeto">fadeto</button>
+</body>
+</html>

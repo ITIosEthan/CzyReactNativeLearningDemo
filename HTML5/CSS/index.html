@@ -1,0 +1,193 @@
+
+		<!--CSS 指层叠样式表 (Cascading Style Sheets)
+			样式定义如何显示 HTML 元素
+			样式通常存储在样式表中
+			把样式添加到 HTML 4.0 中，是为了解决内容与表现分离的问题
+			外部样式表可以极大提高工作效率
+			外部样式表通常存储在 CSS 文件中
+			多个样式定义可层叠为一-->
+			
+		<!--样式通常保存在外部的 .css 文件中。
+		通过仅仅编辑一个简单的 CSS 文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<!--设置背景颜色-->
+		<style type="text/css">
+			body{
+				background: yellow;
+			}
+			h1{
+				background: red;
+				/*设置文本的字体*/
+				font-family:arial;
+				font-size: 300%;
+				font-style: oblique;
+				/*设置字体的粗细*/
+				font-weight: 700;
+				
+				/*所有字体属性在一个声明之内*/
+				/*font:  italic arial,sans-serif;*/
+			}
+			h2{
+				background: green;
+				/*font-style: italic;*/
+				/*设置字体的异体*/
+				font-variant: small-caps;
+			}
+			.no2{
+				background: lightblue;
+				padding-top: 20px;
+				padding-bottom: 100px;
+			}
+		</style>
+		
+		<!--设置文本的背景颜色-->
+		<style type="text/css">
+			.no3{
+				color: red;
+			}
+		</style>
+		
+		<!--将图像设置为背景 background-image-->
+		<style type="text/css">
+			body{
+				/*background-image: url(img/1.png);
+				/*如何重复背景图像*/
+				background-repeat:no-repeat;
+				/*如何放置背景图像*/
+				/*background-position: center;*/
+				/*background-position: 10% 20%;*/
+				background-position: 50px 100px
+				/*如何设置固定的背景图像 图片不会跟随滚动*/;
+				background-attachment: fixed;*/
+			}
+		</style>
+		
+		<!--所有背景属性在一个声明之中-->
+		<style type="text/css">
+			body{
+				background: #ffffff fixed url(img/1.png) center no-repeat
+			}
+		</style>
+		
+		<!--规定字符间距 -->
+		<style type="text/css">
+			.p1{
+				letter-spacing: -10px;
+			}
+			.p2{
+				letter-spacing: 20px;
+			}
+		</style>
+		
+		<!--设置行间距-->
+		<style type="text/css">
+			.p3{
+				line-height: 500%;
+				line-height: 200px;
+				/*默认行高是1*/
+				line-height: 2;
+				background: darkcyan;
+				/*首行缩进*/
+				text-indent: 1cm;
+				/*控制文本中的字母*/
+				text-transform: capitalize;
+				/*在元素中禁止文本折行*/
+				white-space: normal;
+				/*增加单词间距*/
+				word-spacing: 50px;
+			}
+		</style>
+		
+		<!--对齐文本-->
+		<style type="text/css">
+			.no4{
+				text-align: left;
+				background: transparent;
+				/*修饰文本*/
+				text-decoration:overline;
+			}
+			.no5{
+				text-align: center;
+				background: transparent;
+				text-decoration: underline;
+			}
+			.no6{
+				text-align: right;
+				text-decoration: line-through;
+			}
+		</style>
+		
+	</head>
+	<body>
+
+		<!--提示：以下例子中的 CSS 代码均位于 HTML 的 head 部分，这样做的目的是为了利于演示例子本身。
+		在实际的开发中，使用 CSS 最好的方式是引用外部样式表。-->
+		
+		<!--设置背景颜色-->
+		<h1>这是标题1</h1>
+		<h2>这是标题2This is a paragraph</h2>
+		<p>这是段落</p>
+		<p class="no2">这个段落设置了内边距</p>
+		
+		<!--设置文本的背景颜色-->
+		<p>
+			<span class="no3">设置文本的背景颜色</span><span>设置文本的背景颜色</span>
+			<span>设置文本的背景颜色</span><span>设置文本的背景颜色</span>
+			<span>设置文本的背景颜色</span><span class="no3">设置文本的背景颜色</span>
+		</p>
+		
+		<!--将图像设置为背景-->
+		<p><!--将图像设置为背景--></p>
+		
+		<!--测试图片不会跟随网页滚动-->
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		<p>图像不会随页面的其余部分滚动。</p>
+		
+		<!--规定字符间距-->
+		<p class="p1">this is html5</p>
+		<p class="p2">ethan</p>
+		
+		<!--设置行间距-->
+		<p class="p3">这是拥有标准行高的段落。
+			在大多数浏览器中默认行高大约是 110% 到 120%。
+			这是拥有标准行高的段落。
+			这是拥有标准行高的段落。
+			这是拥有标准行高的段落。
+			这是拥有标准行高的段落。acdAswqdSQ qw ers
+			这是拥有标准行高的段落
+		</p>
+		
+		<!--对齐文本-->
+		<h1 class="no4">这是标题1</h1>
+		<h2 class="no5">这是标题2</h2>
+		<h3 class="no6">这是标题3</h3>
+	</body>
+</html>

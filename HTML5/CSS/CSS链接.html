@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			/*a:hover 必须位于 a:link 和 a:visited 之后*/
+			/*a:active 必须位于 a:hover 之后*/
+			/*未访问*/
+			a:link{
+				color: red;
+				/*text-decoration 属性大多用于去掉链接中的下划线：*/
+				text-decoration: underline;
+			}
+			/*已经访问过*/
+			a:visited{
+				color: black;
+			}
+			/*鼠标悬浮在上边*/
+			a:hover{
+				color: green;
+				text-decoration: none;
+			}
+			/*鼠标按住*/
+			a:active{
+				color: brown;
+				background-color: royalblue;
+			}
+			
+		</style>
+		
+	</head>
+	
+	<body>
+		
+		<a href="http://www.baidu.com">百度</a>
+	</body>
+</html>

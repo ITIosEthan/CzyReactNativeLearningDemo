@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			p.p1{
+				border: dotted;
+				border-color: #008000;
+				/*设置上下左右边框的颜色 宽度 样式*/
+				border-top-color: red;
+				border-top-width: 10px;
+				border-top-style: dashed;
+			}
+			p.p2{
+				border: dashed;
+				/*/*设置上下左右边框的颜色 宽度 样式*/*/
+				border-bottom: red 10px dashed;
+			}
+			p.p3{
+				border: solid;
+			}
+			p.p4{
+				border: double;
+			}
+			p.p5{
+				border: groove;
+			}
+			p.p6{
+				border: ridge;
+			}
+			p.p7{
+				border: inset;
+			}
+			p.p8{
+				border: outset;
+			}
+		</style>
+		
+		<!--设置每一边的不同边框-->
+		<style type="text/css">
+			.p11{
+				/*上 右  下 左*/
+				border-style: dashed dotted double groove;
+				border-width: 1px 4px 9px 14px;
+				border-color: red green black blue;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<!--设置四边框样式-->
+		<p class="p1">A dotted border</p>
+		<p class="p2">A dashed border</p>
+		<p class="p3">A solid border</p>
+		<p class="p4">A double border</p>
+		<p class="p5">A groove border</p>
+		<p class="p6">A ridge border</p>
+		<p class="p7">An inset border</p>
+		<p class="p8">An outset border</p>
+		
+		<!--设置每一边的不同边框-->
+		<p class="p11">设置每一边的不同边框</p>
+	</body>
+</html>

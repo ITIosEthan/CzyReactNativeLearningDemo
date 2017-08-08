@@ -1,0 +1,58 @@
+
+<!--基础语法是：$(selector).action()-->
+<!--美元符号定义 jQuery
+选择符（selector）“查询”和“查找” HTML 元素
+jQuery 的 action() 执行对元素的操作-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 语法实例</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+
+    <script>
+
+//        <!--这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。-->
+//        如果在文档没有完全加载之前就运行函数，操作可能失败。下面是两个具体的例子：
+//        试图隐藏一个不存在的元素
+//        获得未完全加载的图像的大小
+        $(document).ready(function () {
+
+            $("button").click(function () {
+
+                //演示 jQuery hide() 函数，隐藏当前的 HTML 元素
+                $(this).hide();
+            });
+
+        })
+
+        $(document).ready(function () {
+
+            $("input").click(function () {
+//                $("#hiddenID").hide();
+//                $("p").hide();
+                $(".cla").hide();
+            });
+        })
+
+    </script>
+
+</head>
+<body>
+
+<p>这里有许多p标签</p>
+<p class="cla">这里有许多p标签</p>
+<p class="cla">这里有许多p标签</p>
+<p>这里有许多p标签</p>
+<p>这里有许多p标签</p>
+<button type="button">演示 jQuery hide() 函数，隐藏当前的 HTML 元素</button>
+<br>
+<input type="button" id="hiddenID" value="演示 jQuery hide() 函数，隐藏 id='text'的元素。">
+<br>
+<input type="button" id="hiddenP" value="演示 jQuery hide() 函数，隐藏所有 <p> 元素。">
+<br>
+<input type="button" value="演示 jQuery hide() 函数，隐藏所有 class='test'的元素。">
+
+</body>
+</html>

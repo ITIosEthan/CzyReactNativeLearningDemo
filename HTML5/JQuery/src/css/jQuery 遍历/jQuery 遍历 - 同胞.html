@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 遍历 - 同胞</title>
+
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#b1").click(function () {
+                $("#hh"). siblings().css("background-color", 'red');
+            });
+            $("#b2").click(function () {
+                $("#hh").next().css("background-color", 'green');
+            });
+            $("#b3").click(function () {
+                $("#hh").nextAll().css("background-color", 'blue');
+            });
+            $("#b4").click(function () {
+                $("#hh").nextUntil("h3").css("background-color", 'black');
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<button id="b1">siblings() 方法返回被选元素的所有同胞元素。</button>
+<button id="b2">next() 方法返回被选元素的下一个同胞元素。</button>
+<button id="b3">nextAll() 方法返回被选元素的所有跟随的同胞元素。</button>
+<button id="b4">nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。</button>
+
+<p>jQuery prev(), prevAll() & prevUntil() 方法
+    prev(), prevAll() 以及 prevUntil() 方法的工作方式与上面的方法类似，
+    只不过方向相反而已：它们返回的是前面的同胞元素
+    （在 DOM 树中沿着同胞元素向后遍历，而不是向前）。</p>
+
+<div id="div1" style="width: 100%;height: 400px;background-color:white">divText
+
+    <div style="width: 100px;display: block; height: 100px;background-color: green">
+        pppp
+        <h2 id="hhh">p1</h2>
+    </div>
+    <h1 id="hh">h1</h1>
+    <h2>hhhhhhhhh2</h2>
+    <h3>442312312</h3>
+</div>
+
+</body>
+</html>

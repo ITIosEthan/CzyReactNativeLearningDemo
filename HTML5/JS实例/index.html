@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<!--onload调用提示框-->
+		<script type="text/javascript">
+			function message(){
+				alert("该提示框是通过onload调用的")
+			}
+		</script>
+		
+	</head>
+	
+	<!--onload调用 页面加载完成-->
+	<body onload="message()">
+		
+		<!--HTML 中的脚本必须位于 <script> 与 </script> 标签之间。-->
+		<!--脚本可被放置在 HTML 页面的 <body> 和 <head> 部分中。-->
+		<!--生成文本-->
+			<script type="text/javascript">
+				document.write("ethan");
+				document.write("<h1>ethan</h1>");
+			</script>
+			
+			<script type="text/javascript">
+				document.write("该消息是在页面加载时输出");
+			</script>
+			
+			<!--JavaScript 语句-->
+			<script type="text/javascript">
+				document.write("<h1>这是标题<h1></h1>");
+				document.write("<p>这是段落</p>");
+				document.write("<p>这是另一个段落</p>");
+			</script>
+			
+			<!--JavaScript 代码块-->
+			<script type="text/javascript">
+				{
+					document.write("<h1>这是标题<h1></h1>");
+					document.write("<p>这是段落</p>");
+					document.write("<p>这是另一个段落</p>");
+				}
+			</script>
+			
+			<!--getElementById修改输出文本-->
+			<h1 id="demo">ethan</h1>
+			<div id="divdemo">abby</div>
+			
+			<script>
+				document.getElementById("demo").innerHTML="ethan2";
+				document.getElementById("divdemo").innerHTML="abby2";
+			</script>
+			
+			<!--点击按钮修改文本内容-->
+			<p>
+				<button type="button" onclick="changeText()">点我改变内容</button>
+			</p>
+			
+			<script>
+				function changeText(){
+					document.getElementById("demo").innerHTML="这是点击按钮之后更新的内容";
+					document.getElementById("divdemo").innerHTML="这是点击按钮之后更新的内容";
+				}
+			</script>
+			
+			<!--js忽略空格 对大小写敏感 对代码进行换行使用反斜杠 \ -->
+			<script>
+				document.write("hello \
+				world");
+			</script>
+			
+			<!--上面的脚本声明了一个变量，为其赋值，显示该值，改变该值，然后再显示该值。-->
+			<script type="text/javascript">
+				document.write("<p></p>")
+				var frisrtname;
+				frisrtname="ethan";
+				document.write(frisrtname);
+				document.write("<p></p>")
+				frisrtname="abby";
+				document.write(frisrtname);
+				document.write("<p></p>")
+			</script>
+			
+			<!--声明变量 点击按钮将变量内容赋给文本-->
+			<p id="p1">我将会被隐藏</p>
+			<button type="button" onclick="changeText2()">点我改变文本</button>
+			<script>
+				function changeText2(){
+//					未使用值来声明的变量，其值实际上是 undefined。
+					var carname;
+					var content="我将会被显示出来";
+					document.getElementById("p1").innerHTML=content;
+				}
+			</script>
+			
+			<!--换行-->
+			<br />
+			
+			<!--如果重新声明 JavaScript 变量，该变量的值不会丢失：-->
+			<script>
+				var text="111";
+				var text;
+				document.write(text);
+			</script>
+			
+			<p></p>
+			
+			<!--加减乘除-->
+			<script>
+				var x=2;
+				var y=3;
+				var q=x+y;
+				var w=x-y;
+				var e=x*y;
+				var r=x/y;
+				var t=x%y;
+				document.write(q,"<br/>", w,"<br/>", e,"<br/>", r,"<br/>", t,"<br/>",);
+			</script>
+			
+			<!--如果浏览器时间小于 10，那么会向您问“早安”。-->
+			<script>
+				var d=new Date();
+				var time=d.getDay();
+				
+				document.write("<p></p>")
+				
+				if (time<10) {
+					document.write(d, "<p></p>", time);
+				}	
+			</script>
+			
+			<br /><br />
+			<!--随机文字链接-->
+			<script>
+				document.write("<a href='http://www.w3school.com.cn'>w3</a>")
+			</script>
+			
+			<br /><br />
+			<!--警告框:alert-->
+			<button type="button" onclick="alertShow()"><p>警告框</p></button>
+			<script>
+				function alertShow(){
+					alert("说点什么呢");
+				}
+			</script>
+			
+			<br />
+			<!--带有折号的警告框-->
+			<button type="button" onclick="ashow()" value="点我">带有折号的警告框</button>
+			<script>
+				function ashow(){
+					alert("说点什么呢"+"\n"+"算了，不说了");
+				}
+			</script>
+			
+			<!--确认框:confirm-->
+			<p>确认框</p>
+			<button type="button" onclick="show_comfirm()" value="确认框">这是一个确认框</button>
+			<script type="text/javascript">
+				function show_comfirm(){
+					
+					var r = confirm("点击了确认框");
+					if (r==true) {
+						alert("点击了确认");
+					}else{
+						alert("点击了取消");
+					}
+				}
+			</script>
+			
+			<br />
+			<br />
+			
+			<!--提示框-->
+			<p>提示框:prompt</p>
+			<input type="button" onclick="promptClick()" value="这是一个提示框"></input>
+			<script>
+				function promptClick(){
+					var name = prompt("请输入您的名字", "ethan cun");
+					if (name != null && name != "") {
+						alert("您好"+name);
+						document.write("您好"+name);
+					}
+				}
+			</script>
+			
+			<!--带有参数的函数-->
+			<!--注意双引号不能嵌套-->
+			<input type="button" onclick="func1('hello')" value="hello"></input>
+			<input type="button" onclick="func1('world')" value="world"></input>
+			<script type="text/javascript">
+				function func1(s){
+					alert(s);
+				}
+			</script>
+			
+			<!--待返回值的函数-->
+			<input type="button" onclick="alert(func2())" value="带返回值的函数"/>
+			<script>
+				function func2(){
+					return '返回带参数的函数';
+				}
+				
+			</script>
+			
+			<!--带有参数并返回值的函数-->
+			<input type="text" id="text1"/>
+			<input type="text" id="text2" />
+			
+			<input type="button" onclick="plus()" value="求和"/>
+			<script>
+				function plus(){
+					var x=parseInt(document.getElementById("text1").value);
+					var y=parseInt(document.getElementById("text2").value);
+					alert(x+y);
+				}
+			</script>
+			
+			<p>for 循环</p>
+			
+			<!--for 循环-->
+			<script>
+				for (var i=0; i<5; i++) {
+					document.write(i);
+					document.write("<p></p>");
+					document.write("<h"+(i+1)+">"+"这是标题"+(i+1))
+					document.write("</h"+(i+1)+">")
+				}
+			</script>
+			
+			<p>While 循环</p>
+			
+			<!--While 循环-->
+			<script type="text/javascript">
+				var i=0;
+				while(i<=5){
+					document.write(i);
+					document.write("<br/>");
+					i++;
+				}
+			</script>
+			
+			<p>Do while 循环</p>
+			
+			<!--Do while 循环-->
+			<script>
+				var i=0
+				do{
+					document.write(i);
+					i++;
+				}while(i<=5);
+				
+			</script>
+			
+			<p>break 语句</p>
+			<!--break 语句-->
+			<script>
+				for (i=0; i<5; i++) {
+					document.write(i);
+					if (i==3) {
+						break;
+					}
+				}
+			</script>
+			
+			<p>continue 语句</p>
+			
+			<!--continue 语句-->
+			<script>
+				for (i=0; i<10; i++) {
+					if (i==5) {
+						continue;
+					}
+					document.write(i);
+				}
+			</script>
+			
+			<br /><br />
+			
+			<!--使用 For...In 声明来遍历数组内的元素-->
+			<script>
+				
+				var cars = new Array();
+				cars[0] = "大众";
+				cars[1] = "奔驰";
+				cars[2] = "宝马";
+				
+				for (car in cars) {
+					document.write(car+cars[car]+"<br />");
+				}
+			</script>
+			
+			<br />
+			<p>try...catch 语句</p>
+			
+			<!--try...catch 语句-->
+			<input type="button" onclick="textTryCatch()" value="try...catch" />
+			<script>
+				function textTryCatch(){
+					try{
+						dddd("ddd");
+					}catch(e){
+						//TODO handle the exception
+						txt = "错误"+e.description;
+						alert(txt);
+					}
+				}
+			</script>
+			
+			<br />
+			<p>带有确认框的 try...catch 语句</p>
+			<!--带有确认框的 try...catch 语句-->
+			<input type="button" onclick="text2Try()" value="带有确认框的 try...catch 语句"/>
+			<script>
+				function text2Try(){
+				try{
+					ddd("ddd");
+				}catch(e){
+					//TODO handle the exception
+					txt = "错误:"+e.description;
+					if (!confirm(txt)) {
+						document.location.href="css/222.html";
+					}
+				}
+				}
+			</script>
+			
+			<!--throw 声明-->
+			<p>throw 声明</p>
+			<button onclick="throwText()">throw练习</button>
+			<script>
+				function throwText(){
+					var x = prompt("请输入一个数0-100之间","")
+
+					try{
+						if (x<0) {
+							throw "error1"
+						}else if(x>100){
+							throw "error2"
+						}else{
+							alert("刚刚好")
+						}
+						
+					}catch(e){
+						//TODO handle the exception
+						if (e == "error1") {
+							alert("太小了")
+						}else if(e == "error2"){
+							alert("太大了")
+						}
+					}
+				}
+			</script>
+			
+			<!--onerror 事件-->
+			<p>onerror 事件</p>
+			<button onclick="click()">onerror 事件</button>
+			
+			<script type="text/javascript">
+				onerror=handleErr
+				var txt=""
+				
+				function handleErr(msg,url,l)
+				{
+				txt="本页中存在错误。\n\n"
+				txt+="错误：" + msg + "\n"
+				txt+="URL: " + url + "\n"
+				txt+="行：" + l + "\n\n"
+				txt+="点击“确定”继续。\n\n"
+				alert(txt)
+				return true
+				}
+				
+				function click(){
+					ddd("111");
+				}
+				
+			</script>
+			
+			<!--检测浏览器及版本-->
+			<script>
+				document.write("<p>浏览器：")
+				document.write(navigator.appName + "</p>")
+				
+				document.write("<p>浏览器版本：")
+				document.write(navigator.appVersion + "</p>")
+				
+				document.write("<p>代码：")
+				document.write(navigator.appCodeName + "</p>")
+				
+				document.write("<p>平台：")
+				document.write(navigator.platform + "</p>")
+				
+				document.write("<p>Cookies 启用：")
+				document.write(navigator.cookieEnabled + "</p>")
+				
+				document.write("<p>浏览器的用户代理报头：")
+				document.write(navigator.userAgent + "</p>")
+			</script>
+			
+			<!--按钮动画-->
+			<a href="http://www.baidu.com" target="_top">
+				<img name="mouse" border="0" src="http://www.w3school.com.cn/i/eg_mouse2.jpg" onmouseover="over()" 
+					alt="图片加载不出来就显示alt，alt也可以放图片url" onmouseout="leave()"/>
+			</a>
+			<script type="text/javascript">
+				function over(){
+					
+					document.mouse.src="http://www.w3school.com.cn/i/eg_mouse.jpg"
+				}
+				function leave(){
+					
+					document.mouse.src="http://www.w3school.com.cn/i/eg_mouse2.jpg"
+				}
+			</script>
+			
+			<p>图片动画</p>
+			<br />
+			<!--图片动画-->
+			<img alt="text image" alt="text image"
+				 src="http://img0.imgtn.bdimg.com/it/u=401967138,750679164&fm=26&gp=0.jpg"
+				 id="firstImage"
+				 onmouseover="imageOver()" onmouseleave="imageLeave()"/>
+			
+			<script type="text/javascript">
+				function imageOver(){
+					document.getElementById("firstImage").src="http://pic.qiantucdn.com/58pic/11/31/58/97p58PICV26.jpg"
+				}
+				function imageLeave(){
+					document.getElementById("firstImage").src="http://img0.imgtn.bdimg.com/it/u=401967138,750679164&fm=26&gp=0.jpg"
+				}
+			</script>
+			<br />
+			<br />
+			
+			<!--图片上叠加图片-->
+			<img name="img1" alt="img1" src="http://img0.imgtn.bdimg.com/it/u=401967138,750679164&fm=26&gp=0.jpg"
+				style="width: 100;"height="50"/>
+			<img name="img2" alt="img2" src="http://pic.qiantucdn.com/58pic/11/31/58/97p58PICV26.jpg"
+				 style="width: 100;"height="50"/>
+			<img name="img3" alt="img3" 
+				src="http://imgsrc.baidu.com/image/c0%3Dshijue1%2C0%2C0%2C294%2C40/sign=8694cad471899e516c8332572aceb346/0eb30f2442a7d9337bfbfd5aa74bd11373f00143.jpg"
+				style="height: 50;"width="100" />
+				
+			<br />
+			
+			<script>
+				function img1(){
+					document.write("img1");
+				}
+				function img2(){
+					document.write("img2");
+				}
+				function img3(){
+					document.write("img3");
+				}
+			</script>
+			
+			<!--map和aero标签 给一张图片不同区域添加点击事件-->
+			<img src="http://img0.imgtn.bdimg.com/it/u=401967138,750679164&fm=26&gp=0.jpg"
+			style="width: 50%;"height="50%" usemap="#czyImage" />
+			
+			<map name="czyImage" id="czyMap">
+				<area shape="rect" coords="0,0,200,200" style="background: repeat;"
+					href="http://img0.imgtn.bdimg.com/it/u=401967138,750679164&fm=26&gp=0.jpg"
+					 onmousemove="superArea()"/>
+				<area shape="circle" coords="210,20,30"  style="background: green;"
+					href="http://pic.qiantucdn.com/58pic/11/31/58/97p58PICV26.jpg"
+					 onmouseover="sub1()"/>
+				<area shape="circle" coords="300,50,50" style="background: blue;"
+					href="http://img0.imgtn.bdimg.com/it/u=401967138,750679164&fm=26&gp=0.jpg"
+				 onmousemove="sub2()" />
+			</map>
+			<br />
+			<p id="textp">original text</p>
+			
+			<script>
+				function superArea(){
+					document.getElementById("textp").innerHTML="super";
+				}
+				function sub1(){
+					document.getElementById("textp").innerHTML="sub1";
+				}
+				function sub2(){
+					document.getElementById("textp").innerHTML="sub2";
+				}
+				
+			</script>
+			
+			<br /><br />
+			
+			<!--简单的计时-->
+			<input type="button" onclick="easyTimer()" style="width: 50;" height="30" value="简单倒计时"/>
+			<script>
+				function easyTimer(){
+					
+					var t = setTimeout("alert('5s过完了')", 5000);
+				}
+			</script>
+			
+			<!--另一个简单的计时-->
+			<input type="button" value="显示时间" onclick="changeText3()"/>
+			<input type="text"  id="inputText" value="0"/>
+			<p id="timerP"></p>
+			<script>
+				function changeText3(){
+
+					for (i=0; i<10; i++) {
+						var t = setTimeout("document.getElementById('inputText').value=1+'s'", 1000)
+						var t = setTimeout("document.getElementById('inputText').value=2+'s'", 2000)
+					}
+				}
+				
+			</script>
+			
+			<!--在一个无穷循环中的计时事件 及时完成时再次调用函数-->
+			<input type="button" value="计时器" onclick="textContentWrite()"/>
+			<input type="text" id="contentText" value="0"/>
+			<script>
+				var c=0;
+				function textContentWrite(){
+					setTimeout("textContentWrite()", 1000)
+					document.getElementById("contentText").value = c
+					c+=1
+				}
+			</script>
+			
+			<p></p>
+			<br />
+			
+			<!--带有停止按钮的无穷循环中的计时事件-->
+			<input type="button" value="开始计时" onclick="start()" />
+			<input type="text" id="timer2Text"  value="0"/>
+			<input type="button" value="停止计时" onclick="stop()"/>
+			
+			<script>
+				var c=0
+				//定时器
+				var t
+				function start(){
+					t = setTimeout("start()", 1000);
+					document.getElementById("timer2Text").value=c
+					c+=1
+				}
+				function stop(){
+					c=0
+					setTimeout("document.getElementById('timer2Text').value=0",0)
+					clearTimeout(t)
+				}
+				
+			</script>
+			
+			<!--使用计时事件制作的钟表 如01：00：00-->
+			<br />
+			<div id="newTimer">00:00:00</div>
+			<input type="button" value="显示时钟" onclick="startRun()" />
+			
+			<script>
+				function startRun(){
+					
+					var date = new Date()
+					var h = date.getHours()
+					var m = date.getMinutes()
+					var s = date.getSeconds()
+					m = msHanddle(m)
+					s = msHanddle(s)
+					
+					document.getElementById("newTimer").innerHTML=h+':'+m+':'+s
+					
+					t = setTimeout("startRun()", 1000)
+				}
+				function msHanddle(i){
+					
+					if (i<10) {
+						i="0"+i
+						return i
+					}
+					return i
+				}
+
+			</script>
+			
+			<br /><br />
+			
+			<!--创建对象的实例-->
+			<script>
+				var xiaoming = new Object()
+				xiaoming.firstname = 'xiaoxiao'
+				xiaoming.age = 11
+				xiaoming.sex = 'man'
+				
+				document.write(xiaoming.firstname, xiaoming.age, xiaoming.sex)
+			</script>
+			
+			<br /><br />
+			
+			<!--创建用于对象的模板-->
+			<script>
+				function manInit(name, age, sex){
+					this.name = name
+					this.age = age
+					this.sex = sex
+				}
+				
+				var p = new manInit("zhangsan", 11, "man")
+				document.write(p.name, p.age, p.sex)
+				
+			</script>
+			
+	</body>
+</html>

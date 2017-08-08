@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 效果 - 动画</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           $("#leftDistanceAnimation").click(function () {
+               $("#div1").animate({'left':'200px'});
+           }) ;
+            $("#multyAnimation").click(function () {
+                $("#div1").animate({
+
+                    'opacity':'0.5',
+                    'left':'400px',
+
+//                    jQuery animate() - 使用相对值
+                    width:'+=200px',
+                    height:'+=200px'
+                });
+            })
+            $("#bookAniamtion").click(function () {
+                $("#div1").animate({
+                    height:'toggle'
+                },4000,function () {
+                    alert('animation finished');
+                });
+            });
+            $("#queueFunction").click(function () {
+                $("#div2").animate({'height':'400px','width':'200px','left':'0px','top':'0px'},'slow');
+                $("#div2").animate({'width':'400px','height':'400px','left':'0px','top':'0px'},'slow');
+                $("#div2").animate({'width':'400px','height':'200px','left':'0px','top':'0px'},'slow');
+                $("#div2").animate({'width':'200px','height':'200px','left':'0px','top':'0px'},'slow');
+            });
+            $("#textBtn").click(function () {
+//                先下移 在放大字体
+                $("#div3").animate({'top':'200px'},'slow',function () {
+                    $("#textStr").animate({'fontSize':'60px'},'slow');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<p>jQuery 动画 - animate() 方法<br>
+    jQuery animate() 方法用于创建自定义动画。<br>
+    $(selector).animate({params},speed,callback);<br>
+    必需的 params 参数定义形成动画的 CSS 属性。<br>
+    可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。<br>
+
+    当使用 animate() 时，必须使用 Camel 标记法书写所有的属性名，
+    比如，必须使用 paddingLeft 而不是 padding-left，
+    使用 marginRight 而不是 margin-right，等等。
+
+    jQuery animate() - 使用相对值
+    也可以定义相对值（该值相对于元素的当前值）。需要在值的前面加上 += 或 -=：
+</p>
+
+<button id="leftDistanceAnimation" type="button" style="position: absolute; margin-top: 10px">移动到距离左边200px距离</button>
+<br>
+<button id="multyAnimation" type="button" style="position: absolute; margin-top: 20px">多重动画</button>
+<br><br>
+<button id="bookAniamtion" type="button" style="position: absolute;margin-top: 20px;">使用预定义的值</button>
+<br>
+<p>    jQuery animate() - 使用预定义的值<br>
+    您甚至可以把属性的动画值设置为 "show"、"hide" 或 "toggle"：</p>
+<div id="div1" style="width: 200px;height: 200px;display: inline-block;background-color: red;position: relative;margin-top: 20px"></div>
+<br><br>
+
+<p style="position: relative">jQuery animate() - 使用队列功能<br>
+    默认地，jQuery 提供针对动画的队列功能。<br>
+    这意味着如果您在彼此之后编写多个 animate() 调用，jQuery 会创建包含这些方法调用的“内部”队列。然后逐一运行这些 animate 调用。<br>
+</p>
+<br><br>
+<button id="queueFunction" style="margin-top: 20px;position: relative">队列动画</button>
+<div id="div2" style="position: relative;width: 200px;height: 200px; background-color:green;position: relative;margin-top: 30px"></div>
+
+<p style="position: relative">把 <div> 元素移动到右边，然后增加文本的字号</p>
+<button id="textBtn" style="position: relative">元素移动到右边，然后增加文本的字号</button>
+<div id="div3" style="background-color: blue;width: 200px;height: 200px;position: relative">
+    <h1 id="textStr" style="align-content: center">测试字符串</h1>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 停止动画</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           $("#slidedown").click(function () {
+               $("#div1").slideDown(2000, function () {
+                   console.log("slide down finished");
+               });
+           }) ;
+            $("#slideUp").click(function () {
+               $("#div1").slideUp(2000);
+            });
+            $("#stopBtn").click(function () {
+
+//                $(selector).stop(stopAll,goToEnd);
+//                可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。
+//                可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。
+               $("#div1").stop(true, false);
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+<p style="position: relative">jQuery stop() 方法<br>
+    jQuery stop() 方法用于停止动画或效果，在它们完成之前。<br>
+    stop() 方法适用于所有 jQuery 效果函数，包括滑动、淡入淡出和自定义动画。<br>
+    $(selector).stop(stopAll,goToEnd);<br>
+</p>
+
+<button style="align-content: center;position: relative" type="button" id="slidedown">点击下滑</button>
+<button style="align-content: center;position: relative;" type="button" id="slideUp">点击上滑</button>
+<button style="align-content: center;position: relative" type="button" id="stopBtn">停止动画</button>
+
+<div id="div1" style="position: relative; display:none; margin-top: 20px; width: 100%;height: auto;background-color: red;
+border: 1px solid #000000">
+
+    <p id="contentP" style="position: relative">jQuery stop() 方法用于在动画或效果完成前对它们进行停止。<br>
+        jQuery stop() 方法用于在动画或效果完成前对它们进行停止。<br></p>
+</div>
+
+
+</body>
+</html>

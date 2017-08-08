@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - 删除元素</title>
+
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+//            jQuery remove() 方法删除被选元素及其子元素。
+//           $("div").remove();
+//            jQuery empty() 方法删除被选元素的子元素。
+//            $("div").empty();
+//            过滤被删除的元素
+            $("button").click(function () {
+//                删除某一类元素下面特殊的元素
+               $("h1").remove(".123");
+            });
+        });
+    </script>
+
+</head>
+<body>
+<p>如需删除元素和内容，一般可使用以下两个 jQuery 方法：<br>
+    remove() - 删除被选元素（及其子元素）<br>
+    empty() - 从被选元素中删除子元素</p>
+</body>
+
+
+<div style="background-color: red;width: 200px;height: 400px">
+    <p id="p1">p11111</p>
+    <p id="p2">p22222</p>
+    <p id="p3">p33333</p>
+    <h1 class="123">21111</h1>
+    <h1 class="123">1212121</h1>
+</div>
+
+<button>删除</button>
+
+</html>

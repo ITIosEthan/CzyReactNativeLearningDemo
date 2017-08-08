@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+		<!--video HTML 5 视频-->
+		<!--control 属性供添加播放、暂停和音量控件。-->
+		<!--<video> 与 </video> 之间插入的内容是供不支持 video 元素的浏览器显示的：-->
+		<!--video 元素允许多个 source 元素。source 元素可以链接不同的视频文件。浏览器将使用第一个可识别的格式：	-->
+		<!--loop循环播放 autoplay自动播放 preload预播放-->
+		<video style="width: 100px; height: 100px; background: 'clear';" controls="controls" loop="loop" 
+			preload="auto">
+			Your browser does not support the video tag.
+			<source src="http://www.w3school.com.cn/i/movie.ogg"></source>
+		</video>
+		<br	 />
+		
+		<!--vedio标签定制-->
+		<input type="button" value="large" onclick="larger()"/>
+		<br />
+		<input type="button" value="normal" onclick="normal()" />
+		<br />
+		<input type="button" value="small" onclick="small()" />
+		<br />
+		<input type="button" value="play" onclick="playOrPause()" id="playBtn"/>
+		<br />
+		<br />
+		
+		<video id="vedio1" controls="controls" style="width: 100; height: 100;" loop="loop">
+			<source src="http://www.w3school.com.cn/example/html5/mov_bbb.mp4"></source>
+			<p>您的浏览器可能不支持视频播放</p>
+		</video>
+		
+		<script>
+			var vedio = document.getElementById("vedio1")
+			function larger(){
+				vedio.width=400
+			}
+			function normal(){
+				vedio.width=200
+			}
+			function small(){
+				vedio.width=50
+			}
+			function playOrPause(){
+				if (!vedio.paused) {
+					vedio.pause()
+					document.getElementById("playBtn").value = "play"
+				}else{
+					vedio.play()
+					document.getElementById("playBtn").value = "pause"
+				}
+			}
+
+		</script>
+		
+		<br />
+		<br /><br />
+		
+		<!--HTML 5 音频 audio-->
+		<!--control 属性供添加播放、暂停和音量控件。
+		audio> 与 </audio> 之间插入的内容是供不支持 audio 元素的浏览器显示的：-->
+		<!--autoplay	autoplay	如果出现该属性，则音频在就绪后马上播放。
+		loop	loop	如果出现该属性，则每当音频结束时重新开始播放。
+		preload	preload	
+		如果出现该属性，则音频在页面加载时进行加载，并预备播放。
+		如果使用 "autoplay"，则忽略该属性。
+		src	url	要播放的音频的 URL。-->
+		<audio controls="controls">
+			<source src="http://www.w3school.com.cn/i/song.mp3" type="audio/mp3"></source>
+			<p>Your browser does not support the audio element.</p>
+		</audio>
+		
+		<!--HTML 5 拖放-->
+		<!--拖放是一种常见的特性，即抓取对象以后拖到另一个位置。
+		在 HTML5 中，拖放是标准的一部分，任何元素都能够拖放。-->
+		<br /><br />
+		<p>请拖放图片到框内</p>
+		<img id="dragImage" src="http://www.w3school.com.cn/i/eg_dragdrop_w3school.gif" style="width: 200px; height: 50px;"
+			draggable="true" ondragstart="dragStart(event)"/>
+		<div style="border-color: blue; border: 1px solid; width: 200px; height: 100px;"
+			ondrop="dragEnd(event)" ondragover="preventDefault(event)"
+			></div>
+		
+		<script>
+			function dragStart(event){
+				//将id存入data 并设置标记text
+				event.dataTransfer.setData("text", event.target.id)
+			}
+			function preventDefault(event){
+				//调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+				event.preventDefault()
+			}
+			function dragEnd(event){
+				//ondragover 事件规定在何处放置被拖动的数据。
+				//默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。
+				//这要通过调用 ondragover 事件的 event.preventDefault() 方法：
+				//调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+				event.preventDefault()
+				//根据text找到data
+				var data = event.dataTransfer.getData("text")
+				//根据data（也就是id） 然后拼接子节点
+				event.target.appendChild(document.getElementById(data))
+			}
+			
+		</script>
+		
+		<br /><br />
+		
+		<!--拖动练习， 两个框框互相拖动-->
+		<img id="img2img" src="http://www.w3school.com.cn/i/eg_dragdrop_w3school.gif" style="width: 200px; height: 50px;"
+			draggable="true" ondragstart="start(event)"/>
+		<br />
+		<div style="border-color: black; border: 1px solid #aaaaaa; width: 200px; height: 100px;" 
+			ondrop="end(event)" ondragover="preDefault(event)">
+			
+		</div>
+		<br />
+		<div style="border: 1px dashed #aaaaaa; width: 200px; height: 100px; border-color: blue;"
+			 ondrop="end(event)" ondragover="preDefault(event)">
+			
+		</div>
+		
+		<script>
+			
+			function start(event){
+				event.dataTransfer.setData("img2", event.target.id)
+			}
+			function preDefault(event){
+				event.preventDefault()
+			}
+			function end(event){
+				event.preventDefault()
+				var data=event.dataTransfer.getData("img2")
+				event.target.appendChild(document.getElementById(data))
+			}
+			
+		</script>
+		
+		<br /><br />
+		
+		<!--dic包含img-->
+		<div style="border: 1px solid #aaaaaa; border-color: 'red'; width: 200px; height: 200px;
+			 margin: 10px; padding-top: 30px;">
+			<img src="http://www.w3school.com.cn/i/eg_dragdrop_w3school.gif" style="width: 200px;
+				 height: 50px;"/>
+			<h1 align="center">内部h1标签</h1>
+		</div>
+		
+		
+		<!--拖动复习  ondragstart  ondragover ondrop -->
+		<img id="textImage" src="http://www.w3school.com.cn/i/eg_dragdrop_w3school.gif" style="width: 200px;
+			 height: 50px;" draggable="true" ondragstart="startD(event)"/>
+		<div style="border: 1px solid; border-color: #aaaaaa; width: 200px; height: 100px;"
+			ondragover="preDef(event)" ondrop="endD(event)">
+		</div>
+		<script>
+			function startD(event){
+				event.dataTransfer.setData("textI", event.target.id)
+			}
+			function preDef(event){
+				event.preventDefault()
+			}
+			function endD(event){
+				event.preventDefault()
+				var data=event.dataTransfer.getData("textI")
+				event.target.appendChild(document.getElementById(data))
+			}
+			
+		</script>
+		
+		<br /><br />
+		
+		<!--canvas 元素用于在网页上绘制图形。-->
+		<!--HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。
+			画布是一个矩形区域，您可以控制其每一像素。
+			canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+			-->
+		<canvas id="canvas" style="width: 200px;height: 100px; background: cadetblue;"></canvas>
+		
+		<!--canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 JavaScript 内部完成-->
+		<script>
+			//JavaScript 使用 id 来寻找 canvas 元素
+			var canvas=document.getElementById("canvas")
+			//创建 context 对象：
+			var cxt=canvas.getContext("2d")
+			//fillStyle 方法将其染成红色，fillRect 方法规定了形状、位置和尺寸。
+			cxt.fillStyle="red"
+			cxt.fillRect(0,0,150,50)
+		</script>
+		
+		<br /><br />
+		
+		<!--实例 - 线条-->
+		<script>
+			var canvas=document.getElementById("canvas")
+			var cxt=canvas.getContext("2d")
+			cxt.fillStyle="green"
+			cxt.beginPath()
+			cxt.moveTo(10,10)
+			cxt.lineTo(200,10)
+			cxt.lineTo(100, 30)
+			cxt.lineTo(10,10)
+			cxt.closePath()
+			cxt.stroke()
+			cxt.fill()
+		</script>
+		
+		<br /><br />
+		
+		<!--实例 - 圆形-->
+		<canvas style="width: 200px;height: 100px; background: cornflowerblue; align-content: center;" id="can11">
+			<p>Your browser does not support the canvas element.</p>
+		</canvas>
+		<script>
+			var canvas=document.getElementById("can11");
+			var context=canvas.getContext("2d");
+			context.fillStyle="#FF0000";
+			context.beginPath();
+			context.arc(40,40,30,0,Math.PI*2,true);
+			context.closePath();
+			context.fill();
+		</script>
+		
+		<br /><br />
+		
+		<!--实例 - 渐变-->
+		<canvas id="can2" style="width: 200px;height: 100px; background: saddlebrown;">
+			You browser not support
+		</canvas>
+		<script>
+			var canvas=document.getElementById("can2");
+			var context=canvas.getContext("2d");
+			var grd=context.createLinearGradient(0,0,200,100);
+			grd.addColorStop(0,"#FF0000");
+			grd.addColorStop(1,"#00FF00");
+			context.fillStyle=grd;
+			context.fillRect(0,0,200,100);
+		</script>
+		
+		<br /><br />
+		
+		<!--实例 - 图像  把一幅图像放置到画布上-->
+		<canvas id="can13" style="border: 1px solid #aaaaaa;" width="200px" height="100px"></canvas>
+		<script>
+			var canvas=document.getElementById("can13");
+			var context=canvas.getContext("2d");
+			var img133=new Image();
+			img133.src="img/1.png";
+			context.drawImage(img133,0,0);
+		</script>
+		
+		<br /><br />
+		
+		
+		<!--HTML5 内联 SVG-->
+		<!--什么是SVG？
+			SVG 指可伸缩矢量图形 (Scalable Vector Graphics)
+			SVG 用于定义用于网络的基于矢量的图形
+			SVG 使用 XML 格式定义图形
+			SVG 图像在放大或改变尺寸的情况下其图形质量不会有损失6666666666666666
+			SVG 是万维网联盟的标准-->
+		<!--什么是SVG？
+			SVG 指可伸缩矢量图形 (Scalable Vector Graphics)
+			SVG 用于定义用于网络的基于矢量的图形
+			SVG 使用 XML 格式定义图形
+			SVG 图像在放大或改变尺寸的情况下其图形质量不会有损失
+			SVG 是万维网联盟的标准-->
+		<!--在 HTML5 中，您能够将 SVG 元素直接嵌入 HTML 页面中：-->
+		
+		<!--xmlns 属性可以在文档中定义一个或多个可供选择的命名空间。
+		该属性可以放置在文档内任何元素的开始标签中。该属性的值类似于 URL，
+		它定义了一个命名空间，浏览器会将此命名空间用于该属性所在元素内的所有内容。-->
+		<!--例如，如果需要使用符合 XML 规范的 XHTML 文档，则应该在文档中的<html> 
+		标签中至少使用一个 xmlns 属性，以指定整个文档所使用的主要命名空间：-->
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+		   <polygon points="100,10 40,180 190,60 10,60 160,180,"
+		   style="fill:red;stroke:blue;stroke-width:3;fill-rule:evenodd;" />
+		</svg>
+		
+		<!--Canvas 与 SVG 的比较
+			下表列出了 canvas 与 SVG 之间的一些不同之处。
+			
+			Canvas
+			依赖分辨率
+			不支持事件处理器
+			弱的文本渲染能力
+			能够以 .png 或 .jpg 格式保存结果图像
+			最适合图像密集型的游戏，其中的许多对象会被频繁重绘
+			
+			SVG
+			不依赖分辨率
+			支持事件处理器
+			最适合带有大型渲染区域的应用程序（比如谷歌地图）
+			复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）
+			不适合游戏应用-->
+		
+		<!--SVG的使用-->
+		<!--矩形-->
+		<svg width="200px" height="100px">
+			<rect width="100px" height="50px" style="fill: #aaaaaa; stroke-width: 1; stroke: rgb(0,0,0);"/>
+		</svg>
+		
+		<!--HTML5 地理定位  请使用 getCurrentPosition() 方法来获得用户的位置。-->
+		
+		
+	</body>
+	
+	
+		
+		
+		
+</html>

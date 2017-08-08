@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - 获取并设置 CSS 类</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+
+    <style type="text/css">
+
+        .custom1{
+
+            font-weight: bold;
+            font-size: xx-large;
+        }
+
+        .custom2{
+            color: blue;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("button").click(function () {
+//                在添加类时，您也可以选取多个元素：
+//                $("h6,h2,h3,h4").addClass("custom1");
+//                $("h2,h3,h4,h6").addClass("custom2");
+//                也可以在 addClass() 方法中规定多个类：
+                $("h2,h3,h4,h6").addClass("custom1 custom2");
+//                删除指定的 class 属性：
+                $("h4").removeClass("custom2");
+//                使用 jQuery toggleClass() 方法。该方法对被选元素进行添加/删除类的切换操作：
+                $("button").click(function () {
+                    $("h2,h3").toggleClass("custom2");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<p>jQuery 操作 CSS<br>
+    jQuery 拥有若干进行 CSS 操作的方法。我们将学习下面这些：<br>
+    addClass() - 向被选元素添加一个或多个类<br>
+    removeClass() - 从被选元素删除一个或多个类<br>
+    toggleClass() - 对被选元素进行添加/删除类的切换操作<br>
+    css() - 设置或返回样式属性</p>
+
+    <h6>11111</h6>
+    <h2>22222</h2>
+    <h3>33333</h3>
+    <h4>44444</h4>
+
+
+    <button>样式切换</button>
+
+</body>
+</html>

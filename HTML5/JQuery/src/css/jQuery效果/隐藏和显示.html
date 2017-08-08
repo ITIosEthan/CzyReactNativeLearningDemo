@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隐藏和显示</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+          $("#btn1").click(function () {
+              $("p").hide();
+          });
+            $("#btn2").click(function () {
+                $("p").show();
+            });
+            $("p").click(function () {
+                $(this).hide(2000);
+            });
+            $("#btn3").click(function () {
+//                隐藏整个页面
+//                $(this).parents().hide(1000);
+//                影藏某个父视图
+//                $(selector).hide(speed,callback);
+                $(this).parents("#first").hide(1000, function () {
+
+                    //事件完成之后的回调
+                    document.body.style.backgroundColor = "brown";
+                });
+            });
+            $("#btn6").click(function () {
+//                $(selector).toggle(speed,callback);
+//                可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒。
+                $("#p6").toggle('fast', function () {
+                    console.log("toggle finished");
+                    alert("toggle finished");
+                });
+            })
+            $("#textBtn").click(function () {
+                $("#textP").toggle(1000, function () {
+                    alert("toggle finished");
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+<p>p1</p>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+
+<p>点击p标签自己消失</p>
+<br>
+<p>如何隐藏部分文本。</p>
+
+<p>联系人列表</p>
+<div id="first" style="background-color: red">
+    <p>张三<br>12<br>男</p>
+    <button id="btn3">btn3</button>
+</div>
+<div id="second" style="background-color: green">
+    <p>李四<br>29<br>男</p>
+    <button id="btn4">btn4</button>
+</div>
+
+<!--通过 jQuery，您可以使用 toggle() 方法来切换 hide() 和 show() 方法。
+-->
+<p id="p6">通过 jQuery，您可以使用 toggle() 方法来切换 hide() 和 show() 方法。</p>
+<button id="btn6">通过 jQuery，您可以使用 toggle() 方法来切换 hide() 和 show() 方法。
+</button>
+
+<p>隐藏与显示练习</p>
+<div id="textDiv" style="width: 500px; height: 100px; border: 2px solid #ffbd4e;">
+    <button id="textBtn" style="border: 1px dashed #888888; width: 500px; text-align: center">点击这里，隐藏/显示面板</button>
+    <p id="textP">一寸光阴一寸金，因此，我们为您提供快捷易懂的学习内容。<br>
+        在这里，您可以通过一种易懂的便利的模式获得您需要的任何知识。</p>
+</div>
+
+</body>
+</html>

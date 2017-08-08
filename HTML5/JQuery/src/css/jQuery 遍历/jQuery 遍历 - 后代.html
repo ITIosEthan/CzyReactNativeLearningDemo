@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 遍历 - 后代</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $("#b1").click(function () {
+//                children() 方法返回被选元素的所有直接子元素。
+//                也可以使用可选参数来过滤对子元素的搜索
+                $("#div1").children("#hh").css("background-color",'brown');
+            });
+
+            $("#b2").click(function () {
+//                find() 方法返回被选元素的后代元素，一路向下直到最后一个后代。
+//               $("#div1").find("div").css("background-color",'black');
+                $("#div1").find("*").css("background-color",'black');
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+<div id="div1" style="width: 100%;height: 400px;background-color:white">divText
+
+
+
+    <div style="width: 100px;display: block; height: 100px;background-color: green">
+        pppp
+        <h2 id="hhh">p1</h2>
+    </div>
+    <h1 id="hh">h1</h1>
+</div>
+
+<button id="b1">children() 方法返回被选元素的所有直接子元素。</button>
+<button id="b2">find() 方法返回被选元素的后代元素，一路向下直到最后一个后代。</button>
+
+</body>
+</html>

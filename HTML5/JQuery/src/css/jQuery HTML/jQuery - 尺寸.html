@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - 尺寸</title>
+
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+           $("#b1").click(function () {
+//               width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。
+               alert($("div").width());
+               alert($("div").height());
+           }) ;
+            $("#b2").click(function () {
+//                innerWidth() 方法返回元素的宽度（包括内边距）。
+                alert($("div").innerWidth());
+                alert($("div").innerWidth());
+            });
+            $("#b3").click(function () {
+//                outerWidth() 方法返回元素的宽度（包括内边距和边框）。
+                alert($("div").outerWidth());
+                alert($("div").outerWidth());
+            });
+            $("#b4").click(function () {
+//                outerWidth(true) 方法返回元素的宽度（包括内边距、边框和外边距）。
+                alert($("div").outerWidth(true));
+                alert($("div").outerHeight(true));
+            });
+            $("#b5").click(function () {
+//                文档（HTML 文档）和窗口（浏览器视口）的宽度和高度
+                alert($(document).width());
+                alert($(document).height());
+                alert($(window).width());
+                alert($(window).height());
+            });
+            $("#b").click(function () {
+               $("#ppp").width(400).height(400);
+            });
+        });
+
+    </script>
+
+    <style>
+        *{
+
+            position: relative;
+        }
+
+    </style>
+
+</head>
+<body>
+<p>width() width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。<br>
+    height() height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。<br>
+    innerWidth() innerWidth() 方法返回元素的宽度（包括内边距）。<br>
+    innerHeight() innerHeight() 方法返回元素的高度（包括内边距）。<br>
+    outerWidth() outerWidth() 方法返回元素的宽度（包括内边距和边框）。<br>
+    outerHeight() outerHeight() 方法返回元素的高度（包括内边距和边框）。<br>
+</p>
+
+<div style="background-color: red;position:relative; width:100px;height:100px; padding: 10px;margin: 5px; border: 1px dashed #000000"></div>
+
+<button id="b1">width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。</button>
+<button id="b2">innerWidth() 方法返回元素的宽度（包括内边距）。</button>
+<button id="b3">outerWidth() 方法返回元素的宽度（包括内边距和边框）。</button>
+<button id="b4">outerWidth(true) 方法返回元素的宽度（包括内边距、边框和外边距）。</button>
+<button id="b5">文档（HTML 文档）和窗口（浏览器视口）的宽度和高度</button>
+
+<p id="ppp" style="width: 100px;height: 100px; position: relative; background-color: red"></p>
+<button id="b" style="position:  relative">指定元素的宽高</button>
+
+</body>
+</html>

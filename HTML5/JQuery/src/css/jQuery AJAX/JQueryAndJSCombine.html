@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>combine</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#b3").click(function () {
+               alert("b3");
+            });
+            $("#b4").click(function () {
+               var html = $.ajax({
+
+                   url:'http://gank.io/api/search/query/listview/category/%E7%A6%8F%E5%88%A9/count/10/page/1',
+                   async:false,
+                   success:function (data, status) {
+                       alert("data:"+data+"status:"+status);
+                   },
+                   error:function (error) {
+                       alert("error:"+error);
+                   }
+               }) ;
+            });
+        });
+    </script>
+    <script>
+        function click1(s) {
+            alert(s);
+        }
+        function click2(s) {
+            alert(s);
+        }
+    </script>
+</head>
+<body>
+
+<button id="b1" onclick="click1('123')">b1</button>
+<button id="b2" onclick="click2('234')">b2</button>
+<button id="b3">b3</button>
+<br>
+<button id="b4">备用json</button>
+
+</body>
+</html>

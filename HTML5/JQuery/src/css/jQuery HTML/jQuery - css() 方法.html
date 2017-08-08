@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - css() 方法</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#b1").click(function () {
+//                返回指定的 CSS 属性的值 css("background-color")
+                alert($(".p1").css("background-color")+
+                    $(".p1").css("width")+
+                    $(".p1").css("height"));
+            });
+            $("#b2").click(function () {
+//                设置指定的 CSS 属性
+                $(".p1").css("background-color",'red');
+            });
+            $("#b3").click(function () {
+//                设置多个 CSS 属性
+                $(".p1").css({
+                    "background-color":'green',
+                    "width":'100px',
+                    "height":'100px'
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<p class="p1" style="background-color: #222222;width: 100%;height: 100px"></p>
+<button id="b1">指定的 CSS 属性的值</button>
+<button id="b2">设置指定的 CSS 属性</button>
+<button id="b3">设置多个 CSS 属性</button>
+
+</body>
+</html>

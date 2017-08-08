@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 加载</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("#b1").click(function () {
+//               $(selector).load(URL,data,callback);
+//               可选的 callback 参数规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：
+//               responseTxt - 包含调用成功时的结果内容
+//               statusTXT - 包含调用的状态
+//               xhr - 包含 XMLHttpRequest 对象
+               $("#h11").load('http://gank.io/api/search/query/listview/category/%E7%A6%8F%E5%88%A9/count/10/page/1',
+                   '',
+                   function (responseText, responseState, xhr) {
+
+                        if (responseState == "success"){
+                            alert('加载成功');
+                            alert(responseText);
+                            alert(xhr);
+                        }else {
+                            alert('加载失败');
+                        }
+               });
+           });
+        });
+    </script>
+
+</head>
+<body>
+
+<b>jQuery - AJAX load() 方法</b>
+<br><b>$(selector).load(URL,data,callback);</b>
+<p>可选的 callback 参数规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：
+    responseTxt - 包含调用成功时的结果内容
+    statusTXT - 包含调用的状态
+    xhr - 包含 XMLHttpRequest 对象</p>
+
+<h6 id="h11">请点击下面的按钮，通过 jQuery AJAX 改变这段文本。</h6>
+
+<button id="b1">加载备用json</button>
+
+</body>
+</html>

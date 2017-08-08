@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - 添加元素</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#b1").click(function () {
+                $("h1").append("append:++++++在后面")
+            });
+            $("#b2").click(function () {
+                $("h2").prepend("prepend:+++++在前面");
+            });
+            $("#b3").click(function () {
+                var text=document.createElement('big');
+                text.innerHTML="pppppp";
+                $("h3").after(text);
+            });
+            $("#b4").click(function () {
+                var text=document.createElement('big');
+                text.innerHTML="ppppp";
+                $("h4").before(text);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("ul").append('<li>444</li>');
+            $("ul").prepend('<li>000</li>')
+            var text="<br><b>bbbbb</b>"
+            $("img").after(text);
+            var text1=$("<b>ppppp</b><br>")
+            $("img").before(text1);
+            var text3=document.createElement('big');
+            text3.innerHTML="<br>zhangan<br>";
+            $("img").after(text3);
+            var text4=$("<b></b>").html("<br><b>gggggg</b><br>");
+            $("img").after(text4);
+        });
+    </script>
+</head>
+<body>
+<p>append() - 在被选元素的结尾插入内容<br>
+    prepend() - 在被选元素的开头插入内容<br>
+    after() - 在被选元素之后插入内容<br>
+    before() - 在被选元素之前插入内容</p>
+</body>
+
+<h1>h1h1h1h11</h1>
+<h2>h2h2h2h2h2</h2>
+<h3>h3h3hh3h3h3</h3>
+<h4>h4h4h4h4h4h4</h4>
+
+<button id="b1">b1</button><br>
+<button id="b2">b2</button><br>
+<button id="b3">b3</button><br>
+<button id="b4">b4</button><br>
+
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+
+<br><p>创建元素并添加</p>
+<img src="http://d.ifengimg.com/mw978_mh598/p2.ifengimg.com/cmpp/2017/08/07/10/f6c3ec28-bc31-4291-8612-bce3630c8f8d_size339_w1000_h666.jpg"
+ style="width: 200px;height: 200px">
+
+</html>

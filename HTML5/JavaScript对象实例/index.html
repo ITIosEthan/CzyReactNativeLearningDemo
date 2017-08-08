@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+		<!--返回字符串的长度-->
+		<script>
+			//输出8，5
+			var s = "返回字符串的长度"
+			s = "11111"
+			document.write(s.length+"<br /><br />")
+		</script>
+		
+		<!--为字符串添加样式-->
+		<script>
+			var s = "为字符串添加样式"
+			
+			document.write(s.big()+"<br />")
+			document.write(s.small()+"<br />")
+			
+			document.write(s.bold()+"<br />")
+			document.write(s.italics()+"<br />")
+			
+			document.write(s.strike()+"<br />")
+			document.write(s.link("http://www.baidu.com")+"<br />")
+			
+			document.write("<p>"+s+s.sub()+"</p>")
+			document.write("<p>"+s+s.sup()+"</p>")
+			
+			document.write(s.fontcolor('red')+"<br />")
+			document.write(s.fontsize(30)+"<br />")
+			
+			var s = "aaaa"
+			document.write(s.toLowerCase()+"<br />")
+			document.write(s.toUpperCase()+"<br />")
+			document.write(s.toLocaleUpperCase()+"<br />")
+			document.write(s.toLocaleLowerCase()+"<br />")
+			document.write(s.toLocaleString()+"<br />")
+			
+		</script>
+		
+		<!--返回字符串中指定文本首次出现的位置 - indexOf()方法-->
+		<script type="text/javascript">
+
+			var str="Hello world!"
+			document.write(str.indexOf("Hello") + "<br />")
+			//不存在 返回-1
+			document.write(str.indexOf("World") + "<br />")
+			document.write(str.indexOf("world") + "<br />")
+		
+		</script>
+		
+		<!--查找字符串中特定的字符，若找到，则返回该字符 - match() 方法-->
+		<script>
+			var s = "hello world"
+			
+			document.write(s.match("llo")+"<br />")
+			document.write(s.match("world")+"<br />")
+			//不存在返回null
+			document.write(s.match("11")+"<br />")
+		</script>
+		
+		<!--替换字符串中的字符 - replace()-->
+		<script>
+			
+			//创建字符串方式
+//			var s = new String()
+			var s = String(s)
+			s = "hello world"
+//			var s = "hello world"
+			document.write(s.replace(/world/, "ethan!") + "<br />")
+			document.write(s.replace(/world/, "ethan!") + "<br />")
+
+		</script>
+		
+		<!--使用 getTime() 计算从1970年到今天有多少年-->
+		<script type="text/javascript">
+		var d=new Date();
+		document.write("从 1970/01/01 至今已有：" + d.getTime() + " 毫秒。" + "<br />");
+		</script>
+		
+		<!--使用 setFullYear() 设置具体的日期-->
+		<script type="text/javascript">
+
+		var d = new Date()
+		d.setFullYear(1992,10,3)
+		document.write(d + "<br />")
+		
+		</script>
+		
+		<!--使用 toUTCString() 把当日的日期（根据 UTC）转换为字符串-->
+		<script type="text/javascript">
+
+		var d = new Date()
+		document.write (d.toUTCString()+"<br />")
+		
+		</script>
+		
+		<!--使用 getDay() 来显示星期，而不仅仅是数字-->
+		<script>
+			var days = ["mondy", "Tuesday", "wednesDay", "ThursDay", "Friday", "Saturday", "Sunday"]
+			
+			var date = new Date()
+			document.write(days[d.getDay()-1]+"<br />")
+		</script>
+		
+		<!--写一个时钟-->
+		<div id="timerDiv">00:00:00</div>
+		<input type="button" value="开始计时"  onclick="createTimer()"/>
+		<input type="button" value="停止计时" onclick="stopTimer()" />
+		<script>
+			
+			var t
+			function createTimer(){
+			
+				var date = new Date()
+				var h = date.getHours()
+				var m = date.getMinutes()
+				var s = date.getSeconds()
+				m = timeHanddle(m)
+				s = timeHanddle(s)
+				
+				document.getElementById("timerDiv").innerHTML = h+':'+m+':'+s
+				
+				t = setTimeout("createTimer()", 1000)
+			}
+			
+			function stopTimer(){
+				
+				document.getElementById("timerDiv").innerHTML = "00:00:00"
+				
+				clearTimeout(t)
+			}
+			
+			function timeHanddle(i){
+				if (i<10) {
+					i="0"+i
+				}
+				return i
+			}
+			
+		</script>
+		
+		<br /><br />
+		
+		<!--JavaScript Array（数组）实例-->
+		<!--创建数组-->
+		<script type="text/javascript">
+		var mycars = new Array()
+			mycars[0] = "Saab"
+			mycars[1] = "Volvo"
+			mycars[2] = "BMW"
+			
+			for (i=0;i<mycars.length;i++)
+			{
+			document.write(mycars[i] + "<br />")
+			}
+		</script>
+		
+		<br /><br />
+		
+		<script type="text/javascript">
+			var x
+			var mycars = new Array()
+			mycars[0] = "Saab"
+			mycars[1] = "Volvo"
+			mycars[2] = "BMW"
+			
+			//x为下标
+			for (x in mycars)
+			{
+			document.write(mycars[x] + "<br />")
+			}
+		</script>
+		
+		<!--用数组的元素组成字符串 - join()-->
+		<script>
+			var arr = new Array()
+			arr[0] = "zhangsan"
+			arr[1] = " lisi"
+			arr[2] = " wangwu"
+			
+			document.write(arr.join() + "<br />")
+			
+		</script>
+		
+		
+		<!--文字数组 - sort()排序-->
+		<script>
+			var arr = new Array()
+			arr[0] = "zhangsan"
+			arr[1] = " lisi"
+			arr[2] = " wangwu"
+			
+			document.write(arr.sort() + "<br />")
+			
+			var arr1 = new Array()
+			arr1[0] = 10
+			arr1[1] = 2
+			arr1[2] = 3
+			arr1[3] = 4
+			arr1[4] = -10
+			
+			document.write(arr1.length + "<br />")
+			document.write(arr1.sort(sortNumber) + "<br />")
+			
+			function sortNumber(a, b){
+				return a < b
+			}
+		</script>
+		
+		<!--JavaScript Boolean（布尔）对象 实例-->
+		<script type="text/javascript">
+			var b1=new Boolean( 0)
+			var b2=new Boolean(1)
+			var b3=new Boolean("")
+			var b4=new Boolean(null)
+			var b5=new Boolean(NaN)
+			var b6=new Boolean("false")
+			
+			document.write("0 是逻辑的 "+ b1 +"<br />")
+			document.write("1 是逻辑的 "+ b2 +"<br />")
+			document.write("空字符串是逻辑的 "+ b3 + "<br />")
+			document.write("null 是逻辑的 "+ b4+ "<br />")
+			document.write("NaN 是逻辑的 "+ b5 +"<br />")
+			document.write("字符串 'false' 是逻辑的 "+ b6 +"<br />")
+		</script>
+		
+		<br /><br />
+		
+		<!--JavaScript constructor 属性-->
+		<script type="text/javascript">
+			var test=new Boolean();
+			
+			if (test.constructor==Array)
+			{
+			document.write("This is an Array");
+			}
+			if (test.constructor==Boolean)
+			{
+			document.write("This is a Boolean");
+			}
+			if (test.constructor==Date)
+			{
+			document.write("This is a Date");
+			}
+			if (test.constructor==String)
+			{
+			document.write("This is a String");
+			}
+		
+		</script>
+		
+		<br /><br />
+		
+		<!--JavaScript prototype 属性-->
+		<script type="text/javascript">
+			function employee(name,job,born)
+			{
+			this.name=name;
+			this.job=job;
+			this.born=born;
+			}
+			
+			var bill=new employee("Bill Gates","Engineer",1985);
+			
+			employee.prototype.salary=null;
+			bill.salary=20000;
+			
+			document.write(bill.salary);
+		</script>
+		
+		<br /><br />
+		
+		<!--JavaScript Math（算数对象）实例-->
+		<script type="text/javascript">
+		
+			document.write(Math.round(0.60) + "<br />")
+			document.write(Math.round(0.50) + "<br />")
+			document.write(Math.round(0.49) + "<br />")
+			document.write(Math.round(-4.40) + "<br />")
+			document.write(Math.round(-4.60))
+		
+			document.write(Math.random())
+			document.write("<br />")
+			document.write(Math.max(5,7) + "<br />")
+			document.write(Math.min(1,7) + "<br />")
+		</script>
+		
+		
+	</body>
+</html>
