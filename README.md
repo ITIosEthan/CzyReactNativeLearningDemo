@@ -7,3 +7,6 @@
 
 ### 携程首页
 ![img{100*100}](https://github.com/ITIosEthan/CzyReactNativeLearningDemo/blob/master/2017-07-14%2016_41_35.gif)
+
+### 简单的获取数据 渲染ListView Demo
+![img{100*100}](https://github.com/ITIosEthan/CzyReactNativeLearningDemo/blob/master/ASimpleListViewWithDataFromNet.gif)
